@@ -1,0 +1,78 @@
+<div class="content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h3 class="heading text-primary text-center text-uppercase m-4">Projet Blog</h3>
+                        <p><img src="../assets/undraw-contact.svg" alt="Image" class="img-fluid"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="mb-5" [formGroup]="postForm" (submit)='addPost()'>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label class="col-md-12 control-label">Titre</label>
+                                    <input type="text" class="form-control" name="titre" id="titre"
+                                        placeholder="Le titre" formControlName="titre"
+                                        [ngClass]="{'is-valid': submitted && !postForm.controls.titre.errors ,'is-invalid': submitted && postForm.controls.titre.errors}">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="submitted && postForm.controls.titre.hasError('required')">Veiller ecrire
+                                        un titre SVP!!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label class="col-md-12 control-label">Categorie</label>
+                                    <select id="categorie" class="form-control" name="categorie"
+                                        formControlName="categorie"
+                                        [ngClass]="{'is-valid': submitted && !postForm.controls.categorie.errors ,'is-invalid': submitted && postForm.controls.categorie.errors}">
+                                        <div class="invalid-feedback d-block"
+                                            *ngIf="submitted && postForm.controls.categorie.hasError('required')">
+                                            Veiller selectionner une categorie SVP!!
+                                        </div>
+                                        <option value="">Sélectionner une categorie</option>
+                                        <option value="Sport">Sport</option>
+                                        <option value="Technologies">Technologies</option>
+                                        <option value="Économie">Économie</option>
+                                        <option value="Société">Société</option>
+                                        <option value="Culture">Culture</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label class="col-md-12 control-label">Date</label>
+                                    <input type="date" class="form-control" formControlName="date" placeholder="Date"
+                                        [ngClass]="{'is-valid': submitted && !postForm.controls.date.errors ,'is-invalid': submitted && postForm.controls.date.errors}">
+                                    <div class="invalid-feedback d-block"
+                                        *ngIf="submitted && postForm.controls.date.hasError('required')">Veiller
+                                        selectionner la date SVP!!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label class="col-md-12 control-label">Description</label>
+                                    <textarea class="form-control" name="description" id="description" cols="30"
+                                        rows="7" placeholder="Description" formControlName="description"
+                                        [ngClass]="{'is-valid': submitted && !postForm.controls.description.errors ,'is-invalid': submitted && postForm.controls.description.errors}">
+                                        <div class="invalid-feedback d-block"
+                                            *ngIf="submitted && postForm.controls.description.hasError('required')">Veiller saisir la description!!
+                                        </div></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="submit" value="Ajouter" class="btn btn-primary ">
+                                    <input type="button" value="Annuler" routerLink="/listPost" class="btn btn-danger">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
